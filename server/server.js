@@ -9,7 +9,7 @@ app.use(express.static('server/public'));
 app.use(bodyParser.json());
 
 // ROUTES
-app.use('/weekend-to-do-app', router);
+app.use('/toDos', router);
 
 // Start listening for requests on a specific port
 app.listen(PORT, () => {
