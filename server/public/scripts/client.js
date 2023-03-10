@@ -5,6 +5,9 @@ $(document).ready( onReady );
 function onReady() {
     console.log('jQuery is ready');
 
+    // listener for to add task
+    $('#addTaskBtn').on('click', addTask);
+
     // initial GET call to populate DOM
     getTasks();
 }
@@ -36,7 +39,7 @@ function render(arrayOfObjects) {
             <td>Done!</td>
             <td><button class="deleteBtn">Delete</button></td>   
         </tr>
-        `)
+        `);
        } else{
         $('#taskDisplayZone').append(`
         <tr class="work">    
@@ -44,7 +47,32 @@ function render(arrayOfObjects) {
             <td><button class="completeBtn">Complete</button></td>
             <td><button class="deleteBtn">Delete</button></td>   
         </tr>
-    `)
+    `);
        }
-    }
+    };
+}
+
+// POST
+function addTask() {
+    console.log('addTask running');
+    
+    // this will be passed to the server via ajax
+    let newTask = {
+        task: $('#taskInput').val()
+    };
+
+    $.ajax({
+        method: 'POST',
+        url: '/toDos',
+        data: newTask
+    }).then((response) => {
+        console.log('POST /toDos was successful', response);
+        clearInputs();
+        getTasks();
+    })
+}
+
+// clearInput
+function clearInputs() {
+    $('#taskInput').val('');
 }
