@@ -31,11 +31,19 @@ function render(arrayOfObjects) {
     for(let i = 0; i < arrayOfObjects.length; i++) {
        if(arrayOfObjects[i].complete === true) {
         $('#taskDisplayZone').append(`
-            <li class="finish">${arrayOfObjects[i].task}</li>
+        <tr class="finish">    
+            <td>${arrayOfObjects[i].task}</td>
+            <td>Done!</td>
+            <td><button class="deleteBtn">Delete</button></td>   
+        </tr>
         `)
        } else{
         $('#taskDisplayZone').append(`
-        <li class="work">${arrayOfObjects[i].task}</li>
+        <tr class="work">    
+            <td>${arrayOfObjects[i].task}</td>
+            <td><button class="completeBtn">Complete</button></td>
+            <td><button class="deleteBtn">Delete</button></td>   
+        </tr>
     `)
        }
     }
