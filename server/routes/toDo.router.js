@@ -53,4 +53,20 @@ router.delete('/task/:id', (req, res) => {
     })
 });
 
+// PUT
+router.put('/taskComplete/:id', (req, res) => {
+    console.log('router-PUT');
+    const taskIdToUpdate = req.params.id;
+    const queryText = `UPDATE "toDos" SET "complete" = true WHERE "id" = $1;`
+
+    pool.query(queryText, [taskIdToUpdate])
+    .then((response) => {
+        console.log('Successful update for task id:', taskIdToUpdate);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('There was an error updating the task', error);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
