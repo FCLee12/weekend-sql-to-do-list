@@ -67,6 +67,6 @@ router.put('/taskComplete/:id', (req, res) => {
         console.log('There was an error updating the task', error);
         res.sendStatus(500);
     })
-})
+});
 
 module.exports = router;

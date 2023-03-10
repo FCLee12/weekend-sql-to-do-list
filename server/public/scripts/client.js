@@ -5,8 +5,11 @@ $(document).ready( onReady );
 function onReady() {
     console.log('jQuery is ready');
 
-    // listener for to add task
+    // listener to add task
     $('#addTaskBtn').on('click', addTask);
+
+    // listener to delete task
+    $('#taskDisplayZone').on('click', '.deleteBtn', deleteTask);
 
     // initial GET call to populate DOM
     getTasks();
@@ -34,7 +37,7 @@ function render(arrayOfObjects) {
     for(let i = 0; i < arrayOfObjects.length; i++) {
        if(arrayOfObjects[i].complete === true) {
         $('#taskDisplayZone').append(`
-        <tr class="finish">    
+        <tr class="finish" data-id=${arrayOfObjects[i].id}>    
             <td>${arrayOfObjects[i].task}</td>
             <td>Done!</td>
             <td><button class="deleteBtn">Delete</button></td>   
@@ -42,7 +45,7 @@ function render(arrayOfObjects) {
         `);
        } else{
         $('#taskDisplayZone').append(`
-        <tr class="work">    
+        <tr class="work" data-id=${arrayOfObjects[i].id}>    
             <td>${arrayOfObjects[i].task}</td>
             <td><button class="completeBtn">Complete</button></td>
             <td><button class="deleteBtn">Delete</button></td>   
@@ -69,10 +72,29 @@ function addTask() {
         console.log('POST /toDos was successful', response);
         clearInputs();
         getTasks();
+    }).catch((error) => {
+        console.log('Error adding newTask', error);
     })
 }
 
 // clearInput
 function clearInputs() {
     $('#taskInput').val('');
+}
+
+// DELETE
+function deleteTask() {
+    console.log('deleteTask is running', $(this));
+    const taskId = $(this).parent().parent().data().id;
+    console.log('this is the task id:', taskId);
+
+    $.ajax({
+        method: 'DELETE',
+        url: `/toDos/task/${taskId}`
+    }).then((response) => {
+        console.log('DELETE /toDos was successful', response);
+        getTasks();
+    }).catch((error) => {
+        console.log('DELETE /toDos failed', error);
+    })
 }
