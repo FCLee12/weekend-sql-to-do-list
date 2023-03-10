@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 
 // POST
 router.post('/', (req, res) => {
-    const newTask= req.body
+    const newTask= req.body;
     console.log('New Task', newTask);
 
     const queryText = `INSERT INTO "toDos" (task)
@@ -35,7 +35,22 @@ router.post('/', (req, res) => {
         console.log(`Error making query ${queryText}`, error);
         res.sendStatus(500);
     })
-   
+});
+
+// DELETE
+router.delete('/task/:id', (req, res) => {
+    console.log('router-DELETE');
+    const taskIdToDelete = req.params.id;
+    const queryText = `DELETE FROM "toDos" WHERE "id" = $1;`
+
+    pool.query(queryText, [taskIdToDelete])
+    .then((response) => {
+        console.log('Successful deletion for task id:', taskIdToDelete);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('There was an error deleting the task', error);
+        res.sendStatus(500);
+    })
 });
 
 module.exports = router;
