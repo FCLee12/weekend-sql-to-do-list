@@ -34,8 +34,7 @@ This project is a to-do list web app built utilizing HTML, CSS, JavaScript, jQue
     <li>The repo should now exist in your local machine</li>
     <li>cd into the repo</li>
     <li>
-        <ol>
-            <li>Run the following commands in your terminal, waiting each time for installation to complete before running the next command:</li>
+        <ol>Run the following commands in your terminal, waiting each time for installation to complete before running the next command:
             <li>npm init --yes</li>
             <li>npm install</li>
         </ol>
@@ -43,3 +42,32 @@ This project is a to-do list web app built utilizing HTML, CSS, JavaScript, jQue
     <li>Upon completion of those installs, you have to start the server with the following command: node server/server.js</li>
     <li>In a browser, go to: localhost:5000 to view the webpage, the to-do list app is now ready for use</li>
 </ol>
+
+## Usage
+<ol>
+    <li>Assuming you have started the server, in a browser, go to: localhost:5000 to view the web app</li>
+    <li>Enter a task in the text input field</li>
+    <li>When the task has been entered, click the 'Add Task' button to the right of the input field</li>
+    <li>The task should be added to the list of tasks below the Task header</li>
+    <li>Once you've completed the task, you can click the 'Complete' button to the right of the task</li>
+    <li>The task will indicate it's been completed by changing the background color of the task, crossing out the task, and removing the 'Complete' button</li>
+    <li>Should youu need to, you can delete any task by clicking the 'Delete' button to the right of the 'Complete' buttton</li>
+</ol>
+
+## Built With
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>jQuery</li>
+    <li>Node.js</li>
+    <li>Express</li>
+    <li>Postgres</li>
+    <li>Postico</li>
+</ul>
+
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality.
+
+## Support
+If you have suggestions or issues, please email me at [fueclee.12@gmail.com]
