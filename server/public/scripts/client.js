@@ -11,6 +11,9 @@ function onReady() {
     // listener to delete task
     $('#taskDisplayZone').on('click', '.deleteBtn', deleteTask);
 
+    // listener to mark task as complete 
+    $('#taskDisplayZone').on('click', '.completeBtn', markComplete);
+
     // initial GET call to populate DOM
     getTasks();
 }
@@ -96,5 +99,22 @@ function deleteTask() {
         getTasks();
     }).catch((error) => {
         console.log('DELETE /toDos failed', error);
+    })
+}
+
+// PUT
+function markComplete() {
+    console.log('markComplete is running', $(this));
+    const taskId = $(this).parent().parent().data().id;
+    console.log('this is the task id:', taskId);
+
+    $.ajax({
+        method: 'PUT',
+        url: `/toDos/taskComplete/${taskId}`
+    }).then((response) => {
+        console.log('PUT /toDos was successful', response);
+        getTasks();
+    }).catch((error) => {
+        console.log('PUT /toDos failed', error);
     })
 }
