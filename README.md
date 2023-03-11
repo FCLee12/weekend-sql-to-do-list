@@ -40,6 +40,9 @@ This project is a to-do list web app built utilizing HTML, CSS, JavaScript, jQue
         </ol>
     </li>
     <li>Upon completion of those installs, you have to start the server with the following command: node server/server.js</li>
+    <li>Make sure Postgres is running, and open up Postico</li>
+    <li>Search for the database.sql file, within the file you will find the code to generate the table / database required to run the web app</li>
+    <li>Upon executing the provided code in Postico, hit refresh and you should now see the toDos table, indicating the database is now ready</li>
     <li>In a browser, go to: localhost:5000 to view the webpage, the to-do list app is now ready for use</li>
 </ol>
 
