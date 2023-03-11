@@ -1,9 +1,13 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+SQL To-Do-List
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Duration: 10 Hours
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+This project is a to-do list web app built utilizing HTML, CSS, JavaScript, jQuery, Node.js, Express, Postgres, and Postico. The idea behind this web app is to allow the user to create a to-do list where they are able to mark a task as completed and delete a task as needed. The task entered by the user will be stored in an SQL database, which will allow the data to persist. Once the page has been loaded, the to-do list is fetched from the database, and displayed on the DOM.
+
+## Screen Shot
+image.png
+
