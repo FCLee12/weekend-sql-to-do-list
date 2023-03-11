@@ -1,11 +1,84 @@
+body {
+    color: white;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #98999A;
+    text-shadow: 2px 2px 3px black;
+}
+
 h1 {
-    color: navy
+    background-color: #5978A6;
+    margin-top: 0;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 3.5em;
+    border-bottom: solid 1px;
+    
+}
+
+h2 {
+    background-color: #5978A6;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-bottom: solid 1px;
+    font-size: 2em;
+}
+
+table {
+    width: 60%;
+}
+
+tr {
+    border-collapse: collapse;
+    border: solid .25px black
+}
+
+td {
+    padding: 5px 3px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+label {
+    margin-right: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 1.3rem;
+}
+
+button {
+    border-radius: 8px;
+    background-color: white;
+    padding: 2px 8px;
+    border: solid 1px white;
+    font-size: 1.1rem;
 }
 
 .finish {
-    background-color: green;
+    background-color: #5978A6;
+    color: #898989;
 }
 
 .work {
-    background-color: grey;
+    background-color: #cb9a52;
+}
+
+#taskForm {
+    display: flex;
+    justify-content: center;
+}
+
+#taskInput {
+    width: 50%;
+    margin-right: 5px;
+}
+
+#addTaskBtn {
+    margin-right: 5%;
+}
+
+#divForTaskDisplay {
+    display: flex;
+    justify-content: center;
 }

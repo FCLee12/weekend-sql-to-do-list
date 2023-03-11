@@ -4,7 +4,7 @@ const pool = require('../modules/pool.js');
 
 // GET
 router.get("/", (req, res) => {
-    const queryText = 'SELECT * FROM "toDos"';
+    const queryText = 'SELECT * FROM "toDos" ORDER BY "id" ASC;';
     console.log("Submitting Query to DB:", queryText);
   
     pool.query(queryText)

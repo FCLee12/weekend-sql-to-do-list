@@ -30,7 +30,7 @@ function getTasks() {
         console.log( 'GET /toDos is successful:', response );
         render(response);
     }).catch((error) => {
-       console.log( 'GET /toDos failed', error );
+    console.log( 'GET /toDos failed', error );
     })
 }
 
@@ -41,7 +41,7 @@ function render(arrayOfObjects) {
        if(arrayOfObjects[i].complete === true) {
         $('#taskDisplayZone').append(`
         <tr class="finish" data-id=${arrayOfObjects[i].id}>    
-            <td>${arrayOfObjects[i].task}</td>
+            <td><s>${arrayOfObjects[i].task}</s></td>
             <td>Done!</td>
             <td><button class="deleteBtn">Delete</button></td>   
         </tr>
@@ -66,18 +66,21 @@ function addTask() {
     let newTask = {
         task: $('#taskInput').val()
     };
-
-    $.ajax({
-        method: 'POST',
-        url: '/toDos',
-        data: newTask
-    }).then((response) => {
-        console.log('POST /toDos was successful', response);
-        clearInputs();
-        getTasks();
-    }).catch((error) => {
-        console.log('Error adding newTask', error);
-    })
+    if( $('#taskInput').val() == '' ) {
+        alert('Please enter a task into the input field before attempting to add a new task')
+    } else {
+        $.ajax({
+            method: 'POST',
+            url: '/toDos',
+            data: newTask
+        }).then((response) => {
+            console.log('POST /toDos was successful', response);
+            clearInputs();
+            getTasks();
+        }).catch((error) => {
+            console.log('Error adding newTask', error);
+        })
+    }
 }
 
 // clearInput
