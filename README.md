@@ -11,3 +11,12 @@ This project is a to-do list web app built utilizing HTML, CSS, JavaScript, jQue
 ## Screen Shot
 <img src="./server/public/images/screenshot.png" alt="screenshot" title="todo project screenshot">
 
+## Prerequisites
+<ul>
+    <li>jQuery</li>
+    <li>Node.js</li>
+    <li>Express</li>
+    <li>Postgres</li>
+    <li>Postico</li>
+</ul>
+
