@@ -1,7 +1,7 @@
--- Creates table toDos
 CREATE TABLE "toDos" (
   "id" serial primary key,
-  "task" varchar(250) not null
+  "task" varchar(250) not null,
+  "complete" boolean default false
 );
 
 -- Example tasks to insert
@@ -12,6 +12,5 @@ VALUES ('Grab tomato sauce'),
 ('Lunch with Jane at 11:30AM');
 
 -- Selects all and orders by ID
--- Used in GET request
 SELECT * FROM "toDos"
 ORDER BY "id" ASC;
