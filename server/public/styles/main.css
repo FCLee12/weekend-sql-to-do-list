@@ -72,6 +72,7 @@ button {
 #taskInput {
     width: 50%;
     margin-right: 5px;
+    font-size: 1.2rem;
 }
 
 #addTaskBtn {
